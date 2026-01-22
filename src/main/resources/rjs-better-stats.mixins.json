@@ -1,0 +1,19 @@
+{
+	"required": true,
+	"package": "com.metabrew.betterstats.mixin",
+	"plugin": "com.metabrew.betterstats.mixin.BetterStatsMixinPlugin",
+	"compatibilityLevel": "JAVA_21",
+	"mixins": [
+		"fix.ShearsUsedMixin",
+		"fix.FlintAndSteelUsedMixin",
+		"fix.EmeraldsSpentTradingMixin",
+		"fix.EmeraldsEarnedTradingMixin",
+		"fix.CreeperIgnitionCountsKillMixin"
+	],
+	"injectors": {
+		"defaultRequire": 1
+	},
+	"overwrites": {
+		"requireAnnotations": true
+	}
+}
