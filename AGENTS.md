@@ -73,6 +73,11 @@ Run:
 ### 8) Update docs
 - Update `README.md` so the **Fixes** table stays accurate (config key, description, and any related stat IDs).
 
+### 9) Update language strings (if you add custom stats)
+- If you add a new custom stat under `minecraft:custom`, add a translation entry so it shows up nicely in the Statistics UI:
+  - File: `src/main/resources/assets/rjs-better-stats/lang/en_us.json`
+  - Key format: `stat.<namespace>.<path>` (example: `stat.rjs-better-stats.xp_collected`)
+
 ## Config usage
 To enable/disable a fix, edit:
 - `config/rjs_better_stats.properties`

@@ -12,6 +12,13 @@ public final class BetterStatsStats {
 	}
 
 	/**
+	 * Custom stat ID that tracks how much experience a player gains from picking up experience
+	 * orbs (the orb's full value; includes XP that may be consumed by mending/repairs).
+	 * Stored under {@link Stats#CUSTOM}.
+	 */
+	public static final Identifier XP_COLLECTED = Identifier.of(Rjsbetterstats.MOD_ID, "xp_collected");
+
+	/**
 	 * Custom stat ID that tracks how many emerald items a player spends in villager trades.
 	 * Stored under {@link Stats#CUSTOM}.
 	 */
@@ -24,6 +31,7 @@ public final class BetterStatsStats {
 	public static final Identifier EMERALDS_EARNED_TRADING = Identifier.of(Rjsbetterstats.MOD_ID, "emeralds_earned_trading");
 
 	public static void register() {
+		registerCustomStat(XP_COLLECTED);
 		registerCustomStat(EMERALDS_SPENT_TRADING);
 		registerCustomStat(EMERALDS_EARNED_TRADING);
 	}

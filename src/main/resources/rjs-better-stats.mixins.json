@@ -6,6 +6,7 @@
 	"mixins": [
 		"fix.ShearsUsedMixin",
 		"fix.FlintAndSteelUsedMixin",
+		"fix.XpEarnedMixin",
 		"fix.EmeraldsSpentTradingMixin",
 		"fix.EmeraldsEarnedTradingMixin",
 		"fix.CreeperIgnitionCountsKillMixin"

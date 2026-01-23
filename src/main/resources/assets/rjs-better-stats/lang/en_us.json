@@ -1,4 +1,5 @@
 {
-  "stat.rjs-better-stats.emeralds_spent_trading": "Emeralds Spent Trading",
-  "stat.rjs-better-stats.emeralds_earned_trading": "Emeralds Earned Trading"
+    "stat.rjs-better-stats.xp_collected": "XP Collected",
+    "stat.rjs-better-stats.emeralds_spent_trading": "Emeralds Spent Trading",
+    "stat.rjs-better-stats.emeralds_earned_trading": "Emeralds Earned Trading"
 }

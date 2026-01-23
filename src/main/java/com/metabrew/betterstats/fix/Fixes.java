@@ -11,6 +11,7 @@ public final class Fixes {
     private static final List<Fix> ALL = List.of(
             new ShearsUsed(),
             new FlintAndSteelUsed(),
+            new XpEarned(),
             new EmeraldsSpentTrading(),
             new EmeraldsEarnedTrading(),
             new CreeperIgnitionCountsKill());
