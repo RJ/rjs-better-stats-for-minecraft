@@ -3,7 +3,44 @@ plugins {
 	id 'maven-publish'
 }
 
-version = project.mod_version
+static String normalizeVersion(String v) {
+	if (v == null) return null
+	v = v.trim()
+	if (v.startsWith("v") || v.startsWith("V")) {
+		return v.substring(1)
+	}
+	return v
+}
+
+static boolean looksLikeVersionTag(String v) {
+	if (v == null) return false
+	// Accept "v0.1.2", "0.1.2", and common semver suffixes like "-beta.1"
+	return v ==~ /(?i)v?\d+\.\d+\.\d+([\-+].+)?/
+}
+
+String resolvedModVersion() {
+	// Priority order:
+	// 1) -Prelease_version=... (explicit override)
+	// 2) CI tag env vars (e.g. GITHUB_REF_NAME=v0.1.2)
+	// 3) gradle.properties mod_version
+	if (project.hasProperty("release_version")) {
+		return normalizeVersion(project.property("release_version").toString())
+	}
+
+	def refName = System.getenv("GITHUB_REF_NAME")
+	if (refName != null && !refName.isBlank() && looksLikeVersionTag(refName)) {
+		return normalizeVersion(refName)
+	}
+
+	def gitTag = System.getenv("GIT_TAG")
+	if (gitTag != null && !gitTag.isBlank() && looksLikeVersionTag(gitTag)) {
+		return normalizeVersion(gitTag)
+	}
+
+	return normalizeVersion(project.mod_version.toString())
+}
+
+version = resolvedModVersion()
 group = project.maven_group
 
 base {
